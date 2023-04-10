@@ -67,8 +67,8 @@ java -jar core-banking-service-0.0.1-SNAPSHOT.jar
 java -jar internet-banking-fund-transfer-service-0.0.1-SNAPSHOT.jar
 
 ```
-The url for eureka is this http://localhost:8081/
-The url for Keycloak is this http://localhost:8080/
+The url for eureka is [this](http://localhost:8081/)
+The url for Keycloak is [this](http://localhost:8080/)
 
 ## License
 
