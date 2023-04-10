@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: internet-banking-api-gateway
+
+#SECURITY BASED CONFIGURATIONS
+app:
+  config:
+    keycloak:
+      url: http://localhost:8080/
+      realm: javatodev-internet-banking
