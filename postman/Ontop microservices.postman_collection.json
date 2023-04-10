@@ -1,0 +1,352 @@
+{
+	"info": {
+		"_postman_id": "a97b27f8-d382-4cd6-a1df-846121ca47ce",
+		"name": "Ontop microservices",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8860284"
+	},
+	"item": [
+		{
+			"name": "Ontop",
+			"item": [
+				{
+					"name": "Health",
+					"item": [
+						{
+							"name": "Payment Health",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8082/fund-transfer/actuator/health",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"fund-transfer",
+										"actuator",
+										"health"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Ontop_Core",
+					"item": [
+						{
+							"name": "Payment in provider 200",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"fromAccount\": \"100015003001\",\n    \"toAccount\": \"100015003000\",\n    \"amount\": 1000.00\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8082/banking-core/api/v1/transaction/fund-transfer",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"banking-core",
+										"api",
+										"v1",
+										"transaction",
+										"fund-transfer"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Balance by user 200",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8082/banking-core/api/v1/user",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"banking-core",
+										"api",
+										"v1",
+										"user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Balance by account 200",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8082/banking-core/api/v1/account/bank-account/100015003001",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"banking-core",
+										"api",
+										"v1",
+										"account",
+										"bank-account",
+										"100015003001"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Withdraw 200",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJNaFlPSmszOFRTeEZjZkRCUHF2RmpTVW9yRTBwcnhFaHBzYmxiQ2FmbXM4In0.eyJleHAiOjE2ODExMTk2NTYsImlhdCI6MTY4MTExOTM1NiwianRpIjoiOTE4MjJhNDMtZTIwMC00ZDY5LWFlM2UtOGE5MmNkZTBhZjk4IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy9vbnRvcGJhbmtpbmciLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiZGI1ZDdjY2QtYTJiMi00Mjc4LWE2MWMtYjAwNTVlNzI3MTZlIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoib250b3BjbGllbnQiLCJzZXNzaW9uX3N0YXRlIjoiNTNjYTNkMzItZGQ4ZC00MzBmLTkzNTAtYTMxN2Y1NmEyMmFlIiwiYWNyIjoiMSIsInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJkZWZhdWx0LXJvbGVzLW9udG9wYmFua2luZyIsIm9udG9wcm9sZSIsIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6InByb2ZpbGUgZW1haWwiLCJzaWQiOiI1M2NhM2QzMi1kZDhkLTQzMGYtOTM1MC1hMzE3ZjU2YTIyYWUiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsInByZWZlcnJlZF91c2VybmFtZSI6Im9udG9wdXNlciIsImdpdmVuX25hbWUiOiIiLCJmYW1pbHlfbmFtZSI6IiJ9.NIBHGA_SP9dhSBITKYZEufJ0dczIN1I4Re1LBsN08UqK75Ut_TsdMjjRLRZ1HCsBT46rSte9K1tNgEofNs2g7xH77tAXVLKVycc3_SKYqTWWtkshL5sfwKBJz8ieHy31JqzbN0iZ3r07F20bV4peCnPwp-Omzz7TolwlGHqZKCKkBbjCEWQnZZkA0WrOIrKYoydbkzqfPR4xTq54STt9h4haOyU207E5SaoeFzNFeUZy5tThN0VefwmKG-MKFWUojziDBQ_R7fM3Sk_E70NLwww3MLKFGJXjeYE_8GbPcUbDVE2ArNk-7jooVSsImC3-11bNjo0iZRUFPPL7gdHZaQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"providerId\": 2,\n    \"amount\": -1000,\n    \"referenceNumber\": \"0712402547\",\n    \"account\": \"100015003001\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8082/banking-core/api/v1/transaction/util-payment",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"banking-core",
+										"api",
+										"v1",
+										"transaction",
+										"util-payment"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Top up 200",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"providerId\": 1,\n    \"amount\": 5000.00,\n    \"referenceNumber\": \"0712402547\",\n    \"account\": \"100015003000\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8082/banking-core/api/v1/transaction/util-payment",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"banking-core",
+										"api",
+										"v1",
+										"transaction",
+										"util-payment"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Generate Token",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "username",
+											"value": "ontopuser",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "admin",
+											"type": "text"
+										},
+										{
+											"key": "grant_type",
+											"value": "password",
+											"type": "text"
+										},
+										{
+											"key": "client_id",
+											"value": "ontopclient",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/realms/ontopbanking/protocol/openid-connect/token",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"realms",
+										"ontopbanking",
+										"protocol",
+										"openid-connect",
+										"token"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Payment_Service",
+					"item": [
+						{
+							"name": "Payment in provider",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"fromAccount\": \"100015003001\",\n    \"toAccount\": \"100015003000\",\n    \"amount\": 1250.34\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8082/fund-transfer/api/v1/transfer",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8082",
+									"path": [
+										"fund-transfer",
+										"api",
+										"v1",
+										"transfer"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "oauth2",
+				"oauth2": [
+					{
+						"key": "clientSecret",
+						"value": "",
+						"type": "string"
+					},
+					{
+						"key": "password",
+						"value": "admin",
+						"type": "string"
+					},
+					{
+						"key": "username",
+						"value": "ontopuser",
+						"type": "string"
+					},
+					{
+						"key": "clientId",
+						"value": "ontopclient",
+						"type": "string"
+					},
+					{
+						"key": "accessTokenUrl",
+						"value": "http://localhost:8080/realms/ontopbanking/protocol/openid-connect/token",
+						"type": "string"
+					},
+					{
+						"key": "tokenName",
+						"value": "banking",
+						"type": "string"
+					},
+					{
+						"key": "grant_type",
+						"value": "password_credentials",
+						"type": "string"
+					},
+					{
+						"key": "scope",
+						"value": "email",
+						"type": "string"
+					},
+					{
+						"key": "addTokenTo",
+						"value": "header",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}
